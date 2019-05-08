@@ -1,0 +1,14 @@
+{
+  "name": "datingapp",
+  "version": "1.0.0",
+  "description": "This containts everything you need to run and edit my dating app",
+  "main": "index.js",
+  "scripts": {
+    "build": "node index.js"
+  },
+  "author": "Rick Chardet",
+  "license": "ISC",
+  "dependencies": {
+    "camelcase": "^5.3.1"
+  }
+}
