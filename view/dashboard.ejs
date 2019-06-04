@@ -1,4 +1,6 @@
 <% include partials/header %>
+<h1>You're logged in</h1>
+</form>
 <h1>Add customer</h1>
 <form method="POST" action="/register">
     <label>First Name</label>
@@ -18,4 +20,7 @@
     delete</a></li>
 <% }) %>
 </ul>
+<form method="get" action="/signout">
+    <button>Logout</button>
+</form>
 <% include partials/footer %>

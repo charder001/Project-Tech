@@ -40,42 +40,44 @@ nav a {
 	border-right: 1px solid black;
 }
 
-.profile {
+.exploreprofile {
 	border: 1px solid black;
 	border-radius: 1em;
 	margin: .5em;
 	overflow: hidden;
 }
 
-.profile h2 {
+.exploreprofile h2 {
 	position: absolute;
 	color: white;
 	margin-left: 1em;
 
 }
 
-.profile p, .profile a {
+.exploreprofile p, .exploreprofile a {
 	margin-left: 1em;
 
 }
 
-.profile img {
+.exploreprofile img {
 	width: 100%;
+	height: 18em;
+	object-fit: cover;
 	border-top-right-radius: 1em;
 	border-top-left-radius: 1em;
 }
 
 
-.profile a {
+.exploreprofile a {
 	text-decoration: none;
 	font-weight: bold;
 }
 
-.profile:first-of-type {
+.exploreprofile:first-of-type {
 	margin-top: 4em;
 }
 
-.profile:last-of-type {
+.exploreprofile:last-of-type {
 	margin-bottom: 4em;
 }
 
@@ -88,11 +90,11 @@ nav a {
 	max-width: 100%;
 	max-height: 5em;
 	border-radius: 100em;
-	margin: .5em 0 .5em 0;
+	margin: .5em 0 .5em .2em;
 }
 
 .listprofile h2 {
-	margin: .5em 0 0 0;
+	margin: .8em 0 0 0;
 }
 
 .listprofile p {
@@ -103,6 +105,39 @@ nav a {
 
 .profiletext {
 	margin-left: .5em;
+}
+
+#profile {
+	margin: 0 auto 0 auto;
+	text-align: center;
+}
+
+#profile h1 {
+	margin: 2em 0 .3em 0;
+}
+
+#userimg {
+	border-radius: 50%;
+	width: 10em;
+	height: 10em;
+	object-fit: cover;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.profileicons {
+	display: flex;
+	justify-content: center;
+}
+
+.icons {
+	border-radius: 50%;
+	width: 4em;
+	height: 4em;
+	object-fit: cover;
+	display: block;
+	border: 1px solid lightgray;
 }
 
 .search {
