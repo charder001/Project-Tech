@@ -2,8 +2,12 @@
 
 ## Description
 
-This repository contains my dating app called "MotoMatch". A dating app where motorcyclists can chat, meet and ride.
-This uses nodejs, express and ejs templating.
+This repository contains my dating app called "MotoMatch", created for a school project called "Project-Tech". 
+In this project we are required to make a node.js application using express and a templating engine. This node app also requires a database connection, for which we are using mongoDB. Please feel free to leave any questions or feedback in the Issues section, it's always appreciated!
+
+
+MotoMatch is a dating app where motorcyclists can chat, meet and ride.
+This app uses nodejs, express, ejs templating and MongoDB.
 
 ## How to install
 
@@ -37,6 +41,18 @@ Logging in will use express-sessions to keep you signed in. From here you will b
 On this dashboard you are able to add and remove users and able to log out.
 
 That's it for now!
+
+## Future plans
+
+- Multer support for adding images
+
+- Detail page for current user
+
+- More data for profile
+
+- Progressive enhancement
+
+- A lot more html/css
 
 ## License
 
