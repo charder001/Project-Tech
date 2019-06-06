@@ -19,7 +19,7 @@ This app uses nodejs, express, ejs templating and MongoDB.
 
 4. Open your browser and navigate to "localhost:3007", this will bring you to the homepage
 
-5. Message me if you'd like the full project to connect your mongoDB database.
+5. Add a .env file and connect to your own MongoDB Database. Message me if you need any more info regarding this step.
 
 ## Usage
 
