@@ -9,6 +9,7 @@ var find = require("array-find")
 var mongojs = require("mongojs")
 var mongoose = require('mongoose')
 
+
 //linking MongoJS to MongoDB Database called "MotoMatch" with the collection "users" 
 var db = mongojs("MotoMatch", ["users"])
 var ObjectId = mongojs.ObjectID
@@ -35,6 +36,7 @@ express()
   }))
 
   //Configure sessions
+  //https://www.youtube.com/watch?v=zsOGmMuwhT4&t=385s for help with user sessions
   .use(session({
     resave: false,
     saveUninitialized: true,
@@ -47,6 +49,7 @@ express()
   .set("views", "view")
 
   //Routes
+  //https://www.youtube.com/watch?v=gnsO8-xJ8rs For help with routing and the basics of expressJS
   .get("/dashboard", dashboard)
   .get("/users", users)
   .get("/login", login)
@@ -58,8 +61,8 @@ express()
   .delete("/users/delete/:id", removeuser)
 
   //Listen on the defined port
-  .listen(3007, function () {
-    console.log("Server listening on port 3007")
+  .listen(3000, function () {
+    console.log("Server listening on port 3000")
   })
 
 //Get "/dashboard"
@@ -69,7 +72,8 @@ function dashboard(req, res) {
   }
   db.users.find(function (err, docs) {
     return res.status(200).render("dashboard.ejs", {
-      users: docs
+      users: docs,
+      currentUser: req.session.user
     })
   })
 }

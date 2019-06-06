@@ -1,7 +1,12 @@
 <% include partials/header %>
-<h1>You're logged in</h1>
+<head>
+        <link rel="stylesheet" type="text/css" href="/register.css">
+</head>
+
+<main>
+<h1>Welcome <%= currentUser.firstName %>, you're logged in to MotoMatch!</h1>
 </form>
-<h1>Add customer</h1>
+<h1>Add user</h1>
 <form method="POST" action="/register">
     <label>First Name</label>
     <input type="text" name="firstName">
@@ -23,4 +28,5 @@
 <form method="get" action="/signout">
     <button>Logout</button>
 </form>
+</main>
 <% include partials/footer %>
