@@ -38,6 +38,10 @@ On this dashboard you are able to add and remove users and able to log out.
 
 That's it for now!
 
+## License
+
+This project is licensed under the MIT License - see the LICENSE.md file for details
+
 ## Feedback
 
 Please feel free to leave any suggestions and/or feedback!
