@@ -44,13 +44,14 @@ Stored data will be structured like this in the MongoDB database.
 
 5. Add a .env file and connect to your own MongoDB Database. Message me if you need any more info regarding this step. Most .env files look kind of like this
 
-`DB_HOST= # Database host (probably localhost)
+```DB_HOST= # Database host (probably localhost)
 
 DB_PORT= # Port of database instance
 
 MONGO_DB= # The database you are using
 
-DB_URL= # URL to connect with your database`
+DB_URL= # URL to connect with your database
+```
 
 6. You're done!
 
