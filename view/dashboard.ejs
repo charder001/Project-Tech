@@ -6,27 +6,17 @@
 <main>
 <h1>Welcome <%= currentUser.firstName %>, you're logged in to MotoMatch!</h1>
 </form>
-<h1>Add user</h1>
-<form method="POST" action="/register">
-    <label>First Name</label>
-    <input type="text" name="firstName">
-    <br>
-    <label>Last Name</label>
-    <input type="text" name="lastName">
-    <label>Password</label>
-    <input type="text" name="password">
-    <br>
-    <input type="submit" value="Submit">
-</form>
-<ul> 
-<% users.forEach(function(user){ %>
-<li><%= user.firstName %> <%= user.lastName %> <a href="#" class="deleteUser" 
-    data-id="<%= user._id %>">
-    delete</a></li>
-<% }) %>
-</ul>
+<%if (currentUser.profilePicture) { %>
+    <div class="profilepic">
+    <img src="<%= currentUser.profilePicture %>" name="profilePicture">
+    </div>
+    <% } %>
+<a class="update-btn" href="/update">Update your profile</a>
 <form method="get" action="/signout">
     <button>Logout</button>
+</form>
+<form action="/users/delete" method="get">
+    <button class="deleteProfile" type="submit">Delete account</button>
 </form>
 </main>
 <% include partials/footer %>

@@ -5,10 +5,13 @@
 
 <main>
 <h1>Register</h1>
-<form method="POST" action="/users/add">
+<form method="POST" action="/register" enctype="multipart/form-data">
 <label>First name<input type="text" name=firstName></label>
 <label>Last name<input type="text" name=lastName></label>
-<label>Password<input type="text" name=password></label>
+<label>Password<input type="password" name=password></label>
+<label for="profilePicture">Profile Picture
+    <input id="profilePicture" type="file" name="profilePicture">
+</label>
 <a href="/login">back</a> <input type="submit" value="Submit">
 </form>
 </main>

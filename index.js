@@ -6,13 +6,9 @@ var bodyParser = require("body-parser")
 var slug = require("slug")
 var path = require("path")
 var find = require("array-find")
-var mongojs = require("mongojs")
+var multer = require("multer")
 var mongoose = require('mongoose')
 
-
-//linking MongoJS to MongoDB Database called "MotoMatch" with the collection "users" 
-var db = mongojs("MotoMatch", ["users"])
-var ObjectId = mongojs.ObjectID
 
 //Linking mongoose to MongoDB Database called "MotoMatch"
 mongoose.connect('mongodb://' + "localhost" + '/' + "MotoMatch", {
@@ -24,13 +20,36 @@ var Schema = mongoose.Schema
 var userSchema = new Schema({
   firstName: String,
   lastName: String,
-  password: String
+  password: String,
+  profilePicture: String
 })
 
 var User = mongoose.model("users", userSchema)
 
+//declaring multer storage location
+const storage = multer.diskStorage({
+  destination: './static/images/uploads',
+  filename: function (req, file, callback) {
+  callback(null, file.fieldname + '-' + Date.now() + 
+  path.extname(file.originalname));
+}
+});
+
+//upload image
+const uploadImage = multer({
+  storage: storage,
+  limits: {
+    fileSize: 1000000
+  },
+  fileFilter: function (req, file, callback) {
+    checkFileExt(file, callback);
+  }
+}).single('profilePicture');
+
 express()
   .use(express.static("static"))
+  .use(express.static(__dirname + '/static'))
+  .use('/static', express.static(__dirname + '/static'))
   .use(bodyParser.urlencoded({
     extended: true
   }))
@@ -51,18 +70,18 @@ express()
   //Routes
   //https://www.youtube.com/watch?v=gnsO8-xJ8rs For help with routing and the basics of expressJS
   .get("/dashboard", dashboard)
-  .get("/users", users)
   .get("/login", login)
   .get("/register", register)
   .get("/signout", signout)
+  .get("/users/delete", deleteUser)
+  .get("/update", getUpdate)
+  .post("/update", postUpdate)
   .post("/login", postlogin)
-  .post("/users/add", submit)
   .post("/register", postregister)
-  .delete("/users/delete/:id", removeuser)
 
   //Listen on the defined port
-  .listen(3000, function () {
-    console.log("Server listening on port 3000")
+  .listen(3001, function () {
+    console.log("Server listening on port 3001")
   })
 
 //Get "/dashboard"
@@ -70,33 +89,11 @@ function dashboard(req, res) {
   if (!req.session.user) {
     return res.status(401).redirect("login")
   }
-  db.users.find(function (err, docs) {
+  User.find(function (err, docs) {
     return res.status(200).render("dashboard.ejs", {
       users: docs,
       currentUser: req.session.user
     })
-  })
-}
-
-//Get "/users"
-function users(req, res) {
-  db.users.find(function (err, docs) {
-    res.render("users.ejs", {
-      users: docs
-    })
-  })
-}
-
-//Post "/users/add"
-function submit(req, res) {
-  var id = slug(req.body.firstName).toLowerCase()
-  var newUser = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    password: req.body.password
-  }
-    db.users.insert(newUser, function (err, result) {
-    res.redirect("/login")
   })
 }
 
@@ -105,25 +102,48 @@ function register(req, res) {
   res.render("register.ejs")
 }
 
+function checkFileExt(file, callback) {
+  const fileExt = /jpeg|jpg|png|gif/;
+  const extName = fileExt.test(path.extname(file.originalname).toLowerCase());
+  const mimeType = fileExt.test(file.mimetype);
+  
+  if (mimeType && extName) {
+    return callback(null, true);
+  } else {
+      callback('File is not a image');
+  }
+}
+
 //Post "/register" 
 function postregister(req, res) {
-  var firstName = req.body.firstName
-  var lastName = req.body.lastName
-  var password = req.body.password
-
-  var newuser = new User()
-  newuser.firstName = firstName
-  newuser.lastName = lastName
-  newuser.password = password
-  newuser.save(function (err, savedUser) {
-    if (err) {
-      console.log(err)
-      return res.status(500).send()
-    }
-
-    return res.status(200).redirect("/login")
-
-  })
+    uploadImage(req, res, (error) => {
+        if (error) {
+          console.log(error);
+        } 
+      
+        else {
+          var firstName = req.body.firstName
+          var lastName = req.body.lastName
+          var password = req.body.password
+          
+          if (req.file){
+            var profilePicture = `/static/images/uploads/${req.file.filename}`
+          }
+              var newuser = new User()
+              newuser.firstName = firstName
+              newuser.lastName = lastName
+              newuser.password = password
+              newuser.profilePicture = profilePicture
+              newuser.save(function (err, savedUser) {
+                if (err) {
+                  console.log(err)
+                  return res.status(500).send()
+                }
+                console.log(newuser)
+                return res.status(200).redirect("/login")
+              })
+        }
+      }) 
 }
 
 //Get "/login"
@@ -163,14 +183,62 @@ function signout(req, res) {
   return res.status(200).send()
 }
 
-//Delete "/users/delete/:id"
-function removeuser(req, res) {
-  db.users.remove({
-    _id: ObjectId(req.params.id)
+//Get "/users/delete"
+function deleteUser(req, res) {
+  User.remove({
+    _id: req.session.user._id
   }, function (err, result) {
     if (err) {
       console.log(err)
     }
-    res.redirect("/dashboard")
+    res.redirect("/login")
   })
+}
+
+//Get "/update"
+function getUpdate(req, res){
+  if (!req.session.user) {
+    return res.status(401).redirect("login")
+  }
+  User.find(function (err, docs) {
+      return res.status(200).render("update", {
+          users: docs,
+          currentUser: req.session.user
+      })
+  })
+}
+
+//post "/update"
+function postUpdate(req, res) {
+  var currentId = req.session.user._id
+  var id = currentId
+  User.findOne({_id: id}, function (err, user) {
+    if (err) {
+        console.log(err)
+        return res.status(500).send()
+    } else {
+        if (!user) {
+            console.log("edit unsuccessful")
+            res.status(404).send()
+        } else {
+          if (req.body.firstName) {
+            user.firstName = req.body.firstName
+          }
+          if (req.body.lastName) {
+            user.lastName = req.body.lastName
+          }
+          if (req.body.password) {
+            user.password = req.body.password
+          }
+          user.save(function (err, updatedObject) {
+            if (err) {
+              console.log(err)
+              res.status(500).send()
+            } else {
+              res.redirect("dashboard")
+            }
+          })
+        }
+      }
+    })
 }
