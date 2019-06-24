@@ -91,3 +91,8 @@ This project is licensed under the   GNU AFFERO GENERAL PUBLIC LICENSE - see the
 ## Feedback
 
 Please feel free to leave any suggestions and/or feedback!
+
+## Code of conduct
+
+Please contact me if you'd like to collaborate on our project and refer to our [Code of Conduct](CONTRIBUTING.md) to see what standards we adhere to.
+
