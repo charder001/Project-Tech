@@ -8,22 +8,36 @@ In this project we are required to make a node.js application using express and 
 
 MotoMatch is a dating app where motorcyclists can chat, meet and ride.
 This app uses nodejs, express, ejs templating and MongoDB.
+This app is still under development, and since it's a school project will not get updated very frequently. If this concept interests you, please feel free to contact me to see if a possible collaboration could be done.
 
-## How to install
+## Getting started
+Everything you need to get your copy of our project up and running on your local machine for testing and providing us with feedback.
 
-1. Clone this repository
+### Prerequisites
+What do you need to have in order to run this app?
+A command prompt(Terminal, CMD(bash), gitBash
+have nodejs installed
+MongoDB and compass
 
-2. Run "npm install" in your terminal
+### How to install
 
-3. start the server using "node index.js" in your terminal
+1. First, clone the repository to your local machine using your terminal
 
-4. Open your browser and navigate to "localhost:3007", this will bring you to the homepage
+`git clone [https://github.com/charder001/Project-Tech]`
+
+2. Run `npm install` in your terminal to install the required packages
+
+3. start the app using `node index.js` in your terminal
+
+4. Start your mongodb database, create a database called MotoMatch with a collection called users.
+
+5. Open your browser and navigate to "localhost:3001/login", this will bring you to the login page.
 
 5. Add a .env file and connect to your own MongoDB Database. Message me if you need any more info regarding this step.
 
 ## Usage
 
-Going to "localhost:3007/login" will bring you to the login page. Here you have the option to log-in, register an account or going back to the homepage.
+Going to "localhost:3001/login" will bring you to the login page. Here you have the option to log-in, register an account or going back to the homepage.
 
 
 ![register](https://user-images.githubusercontent.com/43436118/59025956-a4cce580-8855-11e9-867f-131e1c60aeb1.PNG)
