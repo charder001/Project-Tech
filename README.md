@@ -44,19 +44,22 @@ After cloning our repository, navigate to the folder
 Going to "localhost:3001/login" will bring you to the login page. Here you have the option to log-in, register an account or going back to the homepage.
 
 
-![register](https://user-images.githubusercontent.com/43436118/59025956-a4cce580-8855-11e9-867f-131e1c60aeb1.PNG)
-
-Creating an account will put store data in your local mongoDB database. Using this, you can now log in. 
+![login](https://user-images.githubusercontent.com/43436118/60055830-3013fb00-96df-11e9-9707-c9e2bad39127.PNG)
 
 
-![login](https://user-images.githubusercontent.com/43436118/59025919-8cf56180-8855-11e9-9108-de96b79ae3c5.PNG)
+Creating an account will put store data in your local mongoDB database.  
+
+![register](https://user-images.githubusercontent.com/43436118/60055865-4d48c980-96df-11e9-925d-498bd4dccc23.PNG)
+
+Using this, you can now log in.
 
 Logging in will use express-sessions to keep you signed in. From here you will be redirected to the dashboard. 
 
+![dashboard](https://user-images.githubusercontent.com/43436118/60056120-1d4df600-96e0-11e9-8cd6-56454ade617d.PNG)
 
-![dashboard](https://user-images.githubusercontent.com/43436118/59025987-b7dfb580-8855-11e9-8465-dd527c60b653.PNG)
+On this dashboard you are able to edit view and edit your profile, log out or delete your account.
 
-On this dashboard you are able to add and remove users and able to log out.
+![update](https://user-images.githubusercontent.com/43436118/60056232-833a7d80-96e0-11e9-9e5d-77e8ff4de877.PNG)
 
 That's it for now!
 
