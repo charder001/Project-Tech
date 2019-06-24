@@ -25,6 +25,10 @@ MongoDB and compass
 
 `git clone [https://github.com/charder001/Project-Tech]`
 
+After cloning our repository, navigate to the folder
+
+`cd project-tech`
+
 2. Run `npm install` in your terminal to install the required packages
 
 3. start the app using `node index.js` in your terminal
@@ -56,11 +60,23 @@ On this dashboard you are able to add and remove users and able to log out.
 
 That's it for now!
 
+## Built with
+
+* HTML
+* CSS
+* ES5
+* Node
+* Express
+* Mongoose
+* MongoDB
+
+## Note
+
+This app uses a .env file to declare your database and port info, you could create your own or feel free to contact us and we will gladly supply you with it!
+
+Please feel free to leave any questions, comments or feedback regarding our project in the issues section of this repo.
+
 ## Future plans
-
-- Multer support for adding images
-
-- Detail page for current user
 
 - More data for profile
 
