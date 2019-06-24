@@ -94,5 +94,5 @@ Please feel free to leave any suggestions and/or feedback!
 
 ## Code of conduct
 
-Please contact me if you'd like to collaborate on our project and refer to our [Code of Conduct](CONTRIBUTING.md) to see what standards we adhere to.
+Please contact me if you'd like to collaborate on our project and refer to our [Code of Conduct](CONTRIBUTING.md) to see what standards i adhere to.
 
