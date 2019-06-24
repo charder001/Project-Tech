@@ -26,6 +26,8 @@ var userSchema = new Schema({
 
 var User = mongoose.model("users", userSchema)
 
+
+//https://www.youtube.com/watch?v=9Qzmri1WaaE
 //declaring multer storage location
 const storage = multer.diskStorage({
   destination: './static/images/uploads',
