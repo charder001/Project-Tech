@@ -35,6 +35,9 @@ After cloning our repository, navigate to the folder
 
 4. Start your mongodb database, create a database called MotoMatch with a collection called users.
 
+![db](https://user-images.githubusercontent.com/43436118/60056598-bb8e8b80-96e1-11e9-929d-bbb6df528b3b.PNG)
+
+
 5. Open your browser and navigate to "localhost:3001/login", this will bring you to the login page.
 
 5. Add a .env file and connect to your own MongoDB Database. Message me if you need any more info regarding this step.
