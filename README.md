@@ -120,7 +120,7 @@ This project is licensed under the   GNU AFFERO GENERAL PUBLIC LICENSE - see the
 
 Please feel free to leave any suggestions and/or feedback!
 
-## Code of conduct
+## Want to contribute?
 
 Please contact me if you'd like to collaborate on our project and refer to our [Code of Conduct](CONTRIBUTING.md) to see what standards i adhere to.
 
