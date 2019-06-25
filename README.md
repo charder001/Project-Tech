@@ -10,6 +10,14 @@ MotoMatch is a dating app where motorcyclists can chat, meet and ride.
 This app uses nodejs, express, ejs templating and MongoDB.
 This app is still under development, and since it's a school project will not get updated very frequently. If this concept interests you, please feel free to contact me to see if a possible collaboration could be done.
 
+## Features
+For now, you are able to 
+* create users
+* add a profile image 
+* be kept logged in by sessions
+* edit your profile 
+* delete your profile. 
+
 ## Getting started
 Everything you need to get your copy of our project up and running on your local machine for testing and providing us with feedback.
 
