@@ -23,9 +23,10 @@ Everything you need to get your copy of our project up and running on your local
 
 ### Prerequisites
 What do you need to have in order to run this app?
-A command prompt(Terminal, CMD(bash), gitBash,
-have nodejs installed,
-MongoDB and compass
+* A command prompt(Terminal, CMD, gitBash)
+* have nodejs installed,
+* MongoDB  
+* compass(optional but recommended)
 
 ### How to install
 
